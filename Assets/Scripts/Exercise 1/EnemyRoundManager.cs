@@ -11,6 +11,15 @@ public class EnemyRoundManager : MonoBehaviour
     private float XBound = 8f;
     private float ZBound = 6f;
 
+    public int enemyCounter = 0;
+    public int roundCounter = 2;
+
+    private void Start()
+    {
+        NextRound();
+        roundCounter = 1;
+    }
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -23,7 +32,17 @@ public class EnemyRoundManager : MonoBehaviour
                 if (hit.collider.gameObject.CompareTag("Enemy"))
                 {
                     Destroy(hit.collider.gameObject);
+                    enemyCounter--;
                 }
+            }
+        }
+        if(enemyCounter == 0)
+        {
+            roundCounter++;
+
+            for (int i = 1; roundCounter >= i; i++)
+            {
+                NextRound();
             }
         }
     }
@@ -34,5 +53,7 @@ public class EnemyRoundManager : MonoBehaviour
         float ZRandomIndex = Random.Range(-ZBound, ZBound);
 
         Instantiate(enemy, new Vector3(XRandomIndex, 0.5f, ZRandomIndex), transform.rotation);
+        enemyCounter++;
+        print($"enemigos {enemyCounter}, ronda {roundCounter}");
     }
 }
