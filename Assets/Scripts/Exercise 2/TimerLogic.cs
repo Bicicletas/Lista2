@@ -15,6 +15,7 @@ public class TimerLogic : MonoBehaviour
 
     private void Update()
     {
+        // If the time remaining isn't 0 the timer activates and makes an image start desappearing depending by the courrent time
         if(timeRemaining > 0)
         {
             timeRemaining -= Time.deltaTime;
@@ -27,6 +28,7 @@ public class TimerLogic : MonoBehaviour
         }
     }
 
+    // Displays the timer in minutes and secons of the time remaining in a text
     private void Timer()
     {
         float minutes = Mathf.FloorToInt(timeRemaining / 60);

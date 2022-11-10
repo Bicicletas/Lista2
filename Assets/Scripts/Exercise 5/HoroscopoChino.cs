@@ -15,9 +15,13 @@ public class HoroscopoChino : MonoBehaviour
 
     public TextMeshProUGUI horoscopeText;
 
+    public TMP_InputField inputField;
+
+    // Function of an input field that enters a string, converts it to an int and determinates the solution and find
+    // the match determined by the order of an array showing, at the end, the correct chinese horoscope image and name
     public void FindHoroscope(string s)
     {
-        if(s != null)
+        if(s != "")
         {
             year = Convert.ToInt32(s);
             solution = year % 12;
@@ -26,6 +30,7 @@ public class HoroscopoChino : MonoBehaviour
         }
     }
 
+    // Function of an input field that resets the images and the names every time the text value changes
     public void Reset()
     {
         foreach(GameObject g in horoscope)

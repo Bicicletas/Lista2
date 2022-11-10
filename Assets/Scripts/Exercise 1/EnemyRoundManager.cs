@@ -22,6 +22,7 @@ public class EnemyRoundManager : MonoBehaviour
 
     private void Update()
     {
+        // Every time you hit a certaing gameObject using a raycast it destroys and removes 1 to the enemyCounter
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
@@ -36,6 +37,7 @@ public class EnemyRoundManager : MonoBehaviour
                 }
             }
         }
+        // If the enemyCounter is 0 starts a new round and instantiates an amount of enemies determinates by the number of the round
         if(enemyCounter == 0)
         {
             roundCounter++;
@@ -47,6 +49,8 @@ public class EnemyRoundManager : MonoBehaviour
         }
     }
 
+    // Function that determinates a random position of X nad Z in a predifined bounds and
+    // instantiates a gameObjet inside the bounds and adds 1 to the enemyCounter every time
     private void NextRound()
     {
         float XRandomIndex = Random.Range(-XBound, XBound);
@@ -54,6 +58,5 @@ public class EnemyRoundManager : MonoBehaviour
 
         Instantiate(enemy, new Vector3(XRandomIndex, 0.5f, ZRandomIndex), transform.rotation);
         enemyCounter++;
-        print($"enemigos {enemyCounter}, ronda {roundCounter}");
     }
 }

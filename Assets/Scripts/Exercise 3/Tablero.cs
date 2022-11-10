@@ -10,11 +10,14 @@ public class Tablero : MonoBehaviour
 
     public int borderX = 0;
 
+    private int maxBorder = 2;
+
     private void Update()
     {
+        // When you click W (up), A (left), S (down), D (right) the player moves by a defined amount if the border is not higher than maxBorder
         if (Input.GetKeyDown(KeyCode.W))
         {
-            if (borderY < 2)
+            if (borderY < maxBorder)
             {
                 gameObject.transform.position = new Vector3(transform.position.x, transform.position.y + movement, 0);
                 borderY++;
@@ -22,7 +25,7 @@ public class Tablero : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
-            if (borderX > -2)
+            if (borderX > -maxBorder)
             {
                 gameObject.transform.position = new Vector3(transform.position.x - movement, transform.position.y, 0);
                 borderX--;
@@ -30,7 +33,7 @@ public class Tablero : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
-            if (borderY > -2)
+            if (borderY > -maxBorder)
             {
                 gameObject.transform.position = new Vector3(transform.position.x, transform.position.y - movement, 0);
                 borderY--;
@@ -38,7 +41,7 @@ public class Tablero : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            if (borderX < 2)
+            if (borderX < maxBorder)
             {
                 gameObject.transform.position = new Vector3(transform.position.x + movement, transform.position.y, 0);
                 borderX++;

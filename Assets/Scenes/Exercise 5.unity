@@ -623,6 +623,7 @@ MonoBehaviour:
   - Horse
   - Goat
   horoscopeText: {fileID: 296121181}
+  inputField: {fileID: 0}
 --- !u!4 &438158647
 Transform:
   m_ObjectHideFlags: 0
@@ -839,8 +840,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 438158646}
         m_TargetAssemblyTypeName: HoroscopoChino, Assembly-CSharp
-        m_MethodName: Reset
-        m_Mode: 1
+        m_MethodName: FindHoroscope
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
